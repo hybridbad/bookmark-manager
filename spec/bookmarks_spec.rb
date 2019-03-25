@@ -6,11 +6,10 @@ describe Bookmarks do
 
   describe '#display_list' do
     it 'Should return list of bookmarks' do
-      expect(list.display_all).to eq([
-      "http://www.makersacademy.com",
-      "http://www.destroyallsoftware.com",
-      "http://www.google.com"
-     ])
+      expect(list.display_all).to eq(["http://www.google.com",
+        "http://www.makersacademy.com",
+        "http://www.destroyallsoftware.com"
+        ])
     end
   end
 

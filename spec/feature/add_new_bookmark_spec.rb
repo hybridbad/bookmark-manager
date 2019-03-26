@@ -8,14 +8,10 @@ feature 'add new bookmark to db' do
     expect(page).to have_content "Enter url"
   end
 
-  scenario 'get confirmation when bookmark saved' do
-    save_bookmark
-    expect(page).to have_content('Saved!')
-  end
-
   scenario 'it actually saves the bookmark' do
     save_bookmark
     visit('/bookmarks')
+    save_and_open_page
     expect(page).to have_content("http://makers.tech")
   end
 end

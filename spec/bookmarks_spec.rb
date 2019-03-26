@@ -21,7 +21,6 @@ describe Bookmarks do
 
   describe '#add bookmark' do
     it 'adds a bookmark to the database' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
 
       Bookmarks.add('http://makers.tech')
       bookmarks = Bookmarks.display_all

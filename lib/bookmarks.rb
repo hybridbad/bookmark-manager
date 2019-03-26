@@ -5,7 +5,7 @@ class Bookmarks
   def self.display_all
     conn = PG.connect(dbname: 'bookmark_manager')
     conn.exec("SELECT * FROM bookmarks") do |result|
-      return result.map do |row|
+      result.map do |row|
         row["url"]
       end
     end

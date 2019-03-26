@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vi1551/Makers/month_1/week_4/pairing_work/bookmark_manager/app.rb": [
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/app.rb": [
         1,
         1,
         null,
@@ -20,7 +20,7 @@
         1,
         null
       ],
-      "/Users/vi1551/Makers/month_1/week_4/pairing_work/bookmark_manager/lib/bookmarks.rb": [
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/lib/bookmarks.rb": [
         1,
         null,
         1,
@@ -36,7 +36,7 @@
         null,
         null
       ],
-      "/Users/vi1551/Makers/month_1/week_4/pairing_work/bookmark_manager/spec/bookmarks_spec.rb": [
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/bookmarks_spec.rb": [
         1,
         null,
         1,
@@ -52,9 +52,10 @@
         null,
         null,
         null,
+        null,
         null
       ],
-      "/Users/vi1551/Makers/month_1/week_4/pairing_work/bookmark_manager/spec/feature/display_homepage_spec.rb": [
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/feature/display_homepage_spec.rb": [
         1,
         1,
         1,
@@ -62,7 +63,7 @@
         null,
         null
       ],
-      "/Users/vi1551/Makers/month_1/week_4/pairing_work/bookmark_manager/spec/feature/show_all_bookmarks_spec.rb": [
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/feature/show_all_bookmarks_spec.rb": [
         1,
         1,
         1,
@@ -75,6 +76,6 @@
         null
       ]
     },
-    "timestamp": 1553533024
+    "timestamp": 1553593136
   }
 }

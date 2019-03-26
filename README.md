@@ -8,8 +8,8 @@ We need to display a list of bookmarks
 ```
 ```
 As a user
-So I can add a new link and bookmark to my list
-We need to be able to enter a link and title and add to the list
+So I can add a new bookmark to my list
+We need to be able to enter a link and add to the list
 ```
 ```
 As a user

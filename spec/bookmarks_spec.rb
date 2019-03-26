@@ -1,19 +1,21 @@
 require 'bookmarks'
 
-
 describe Bookmarks do
 
-  subject(:list) { described_class }
-
   describe '#display_list' do
-    it 'Should return list of bookmarks' do
-      expect(list.display_all(ENV['TEST_DB'])).to eq([
-        "http://makers.tech",
-        "http://www.google.com", 
-        "http://www.twitter.com",
-        "http://www.pistonheads.com",
-        "http://www.bbc.co.uk"
-      ])
+    it 'returns a list of bookmarks' do
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+  
+      # Add the test data
+      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+  
+      bookmarks = Bookmarks.display_all
+  
+      expect(bookmarks).to include('http://www.makersacademy.com')
+      expect(bookmarks).to include('http://www.destroyallsoftware.com')
+      expect(bookmarks).to include('http://www.google.com')
     end
   end
 

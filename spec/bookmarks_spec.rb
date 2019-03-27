@@ -1,4 +1,5 @@
 require 'bookmarks'
+require 'web_helpers'
 
 describe Bookmarks do
 
@@ -6,9 +7,7 @@ describe Bookmarks do
     it 'returns a list of bookmarks' do
   
       # Add the test data
-      Bookmarks.add(url: 'http://www.makersacademy.com')
-      Bookmarks.add(url: 'http://www.destroyallsoftware.com')
-      Bookmarks.add(url: 'http://www.google.com')
+      add_bookmark_entries
   
       bookmarks = Bookmarks.display_all
   

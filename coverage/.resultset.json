@@ -72,26 +72,16 @@
       ],
       "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/bookmarks_spec.rb": [
         1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
         1,
         null,
         1,
         null,
         1,
         1,
+        null,
+        null,
         1,
         null,
-        null,
-        null,
-        1,
         1,
         null,
         1,
@@ -100,7 +90,29 @@
         null,
         null,
         null,
+        1,
+        1,
         null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/web_helpers.rb": [
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
         null
       ],
       "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/feature/add_new_bookmark_spec.rb": [
@@ -125,13 +137,6 @@
         null,
         null
       ],
-      "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/web_helpers.rb": [
-        1,
-        0,
-        0,
-        0,
-        null
-      ],
       "/Users/jdmac/Dropbox/MakersAcademy/week4/bookmark_manager/spec/feature/display_homepage_spec.rb": [
         1,
         1,
@@ -144,7 +149,7 @@
         1,
         null,
         1,
-        1,
+        null,
         1,
         1,
         null,
@@ -157,6 +162,6 @@
         null
       ]
     },
-    "timestamp": 1553707816
+    "timestamp": 1553708374
   }
 }

@@ -1,9 +1,9 @@
 feature 'displays all bookmarks' do
 
   scenario 'on loading bookmark route display all bookmarks' do
-    Bookmarks.add('http://www.makersacademy.com')
-    Bookmarks.add('http://www.destroyallsoftware.com')
-    Bookmarks.add('http://www.google.com')
+    Bookmarks.add(url: 'http://www.makersacademy.com')
+    Bookmarks.add(url: 'http://www.destroyallsoftware.com')
+    Bookmarks.add(url: 'http://www.google.com')
 
     visit('/bookmarks')
   

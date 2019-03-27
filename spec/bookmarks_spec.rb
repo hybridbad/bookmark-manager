@@ -4,12 +4,11 @@ describe Bookmarks do
 
   describe '#display_list' do
     it 'returns a list of bookmarks' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
   
       # Add the test data
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+      Bookmarks.add(url: 'http://www.makersacademy.com')
+      Bookmarks.add(url: 'http://www.destroyallsoftware.com')
+      Bookmarks.add(url: 'http://www.google.com')
   
       bookmarks = Bookmarks.display_all
   
@@ -19,13 +18,14 @@ describe Bookmarks do
     end
   end
 
-  describe '#add bookmark' do
-    it 'adds a bookmark to the database' do
+  describe '#add bookmark url and title' do
+    it 'adds a bookmark to the database with a title and url' do
 
-      Bookmarks.add('http://makers.tech')
+      Bookmarks.add(url: 'http://makers.tech')
       bookmarks = Bookmarks.display_all
       expect(bookmarks).to include('http://makers.tech')
     end
   end
+
 
 end

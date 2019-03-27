@@ -9,9 +9,12 @@ feature 'add new bookmark to db' do
   end
 
   scenario 'it actually saves the bookmark' do
-    save_bookmark
-    visit('/bookmarks')
-    save_and_open_page
-    expect(page).to have_content("http://makers.tech")
+    visit('/bookmarks/add')
+    fill_in('url_text', with: 'http://makers.tech')
+    fill_in('title', with: "Test")
+    click_button('Save')
+    
+    expect(page).to have_content('http://makers.tech')
+    expect(page).to have_content('Test')
   end
 end

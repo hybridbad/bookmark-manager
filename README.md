@@ -17,12 +17,14 @@ You're going to build a bookmark manager. A bookmark manager is a website to mai
 1. `brew install postgresql`
 2. `psql`
 3. `CREATE DATABASE bookmark_manager;`
-4. `\i bookmark_local.sql;`
+4. `\c bookmark_manager;`
+5. `\i bookmark_local.sql;`
 
 ### Setting up test Database for RSpec/cabybara purposes
 1. `psql`
 2. `CREATE DATABASE bookmark_manager_test;`
-3. `CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));`
+3. `\c bookmark_manager_test`
+4. `CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));`
 
 Now when running RSpec it will utilize the test database only for testing purposes.
 

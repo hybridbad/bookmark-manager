@@ -10,6 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Forma
 SimpleCov.start
 
 RSpec.configure do |config|
+  # this method is executed before each test
   config.before(:each) do
     setup_test_database
   end

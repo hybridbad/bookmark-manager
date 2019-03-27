@@ -12,6 +12,8 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @bookmarks = Bookmarks.display_all
+    @title = session[:title]
+
     erb :bookmarks
   end
 
@@ -20,10 +22,11 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    Bookmarks.add(params[:url_text])
+    Bookmarks.add(url: params[:url_text])
+    session[:title] = params[:title]
 
     redirect '/bookmarks'
   end
-
+ 
   run! if app_file == $0
 end

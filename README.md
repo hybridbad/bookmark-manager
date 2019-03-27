@@ -7,7 +7,25 @@ You're going to build a bookmark manager. A bookmark manager is a website to mai
 ### Instructions
 
 1. `git clone git@github.com:hybridbad/bookmark-manager.git`
-2. `bundle install`
+2. `cd to cloned dir`
+3. `bundle install`
+4. Do below database setup for local use and testing if you want.
+5. `rackup`
+6. In browser of choice `localhost:9292`
+
+### Setting up Database for storing Bookmarks - for local use
+1. `brew install postgresql`
+2. `psql`
+3. `CREATE DATABASE bookmark_manager;`
+4. `\i bookmark_local.sql;`
+
+### Setting up test Database for RSpec/cabybara purposes
+1. `psql`
+2. `CREATE DATABASE bookmark_manager_test;`
+3. `CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));`
+
+Now when running RSpec it will utilize the test database only for testing purposes.
+
 
 ### User Stories
 ```
@@ -54,18 +72,6 @@ We need to able to log in and give access to own bookmarks
 ### Domain Model
 
 Lifted from walkthrough
-![Bookmark Manager domain model](../images/bookmark_manager_1.png)
+![Bookmark Manager domain model](https://github.com/makersacademy/course/blob/master/bookmark_manager/images/bookmark_manager_1.png?raw=true)
 
 
-### Setting up Database for storing Bookmarks - for local use
-1. `brew install postgresql`
-2. `psql`
-3. `CREATE DATABASE bookmark_manager;`
-4. `\i bookmark_local.sql;`
-
-### Setting up test Database for RSpec/cabybara purposes
-1. `psql`
-2. `CREATE DATABASE bookmark_manager_test;`
-3. `CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));`
-
-Now when running RSpec it will utilize the test database only for testing purposes.

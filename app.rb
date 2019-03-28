@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/bookmarks'
+require 'pg'
 
 # Web app class
 class BookmarkManager < Sinatra::Base
@@ -27,6 +28,13 @@ class BookmarkManager < Sinatra::Base
   post '/bookmarks/add' do
     Bookmark.add(url: params[:url_text], title: params[:title])
 
+    redirect '/bookmarks'
+  end
+
+  post '/bookmarks/delete' do
+    title = params[:delete_bookmark]
+    conn = PG.connect(dbname: 'bookmark_manager_test')
+    conn.exec("DELETE FROM bookmarks WHERE title = '#{title}'")
     redirect '/bookmarks'
   end
  

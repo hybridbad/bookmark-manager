@@ -10,6 +10,12 @@ class Bookmark
     @url = url
   end
 
+  def self.find(id:)
+    self.connect_db
+    result = @conn.exec("SELECT * FROM bookmarks WHERE id = #{id};")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
+
   def self.display_all
     # call connect method
     self.connect_db
@@ -31,12 +37,11 @@ class Bookmark
     @conn.exec("DELETE FROM bookmarks WHERE id = '#{id}';")
   end
 
-  # def self.update(id:, title:)
-  #   self.connect_db
-  #   update = @conn.exec("UPDATE bookmarks SET title = '#{title}' WHERE id = '#{id}' RETURNING id, url, title")
-
-  #   p update[0]['title']
-  # end
+  def self.update(id:, title:, url:)
+    self.connect_db
+    result = @conn.exec("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = '#{id}' RETURNING id, url, title;")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
 
   private
 

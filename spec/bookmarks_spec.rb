@@ -5,8 +5,6 @@ describe Bookmark do
 
   describe '#display_list' do
     it 'returns a list of bookmarks' do
-  
-      connection = PG.connect(dbname: 'bookmark_manager_test')
 
    # Add the test data
       bookmark = Bookmark.add(url: "http://www.makersacademy.com", title: "Makers Academy")
@@ -50,17 +48,29 @@ describe Bookmark do
     end
   end
 
-  # describe '#update' do
-  #   it 'updates a bookmark title' do
-  #     bookmark = Bookmark.add(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
-  #     p bookmark.id
-  #     Bookmark.update(id: bookmark.id, title: 'New title')
-  #     p bookmark.id
-  #     expect(bookmark.title).to eq 'New title'
+  describe '#update' do
+    it 'updates a bookmark title' do
+      bookmark = Bookmark.add(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      updated_bookmark = Bookmark.update(id: bookmark.id, url: 'http://www.snakersacademy.com', title: 'Snakers Academy')
+      
+      expect(updated_bookmark).to be_a Bookmark
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.title).to eq 'Snakers Academy'
+      expect(updated_bookmark.url).to eq 'http://www.snakersacademy.com'
+    end
+  end
 
-  #   end
-  # end
+  describe '#find' do
+    it 'find bookmark and returns the object' do
+      bookmark = Bookmark.add(title: 'Makers Academy', url: 'http://www.makersacademy.com')
 
+      result = Bookmark.find(id: bookmark.id)
 
-  # .fin method 
+      expect(result).to be_a Bookmark
+      expect(result.id).to eq bookmark.id
+      expect(result.title).to eq 'Makers Academy'
+      expect(result.url).to eq 'http://www.makersacademy.com'
+    end
+  end
+
 end

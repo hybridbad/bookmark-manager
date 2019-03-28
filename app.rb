@@ -21,7 +21,7 @@ class BookmarkManager < Sinatra::Base
 
   # route for add bookmark view for form
   get '/bookmarks/add' do
-    erb :add
+    erb :"bookmarks/add"
   end
 
   # post route for add form, calls add class method and passes in url argument as params
@@ -31,21 +31,20 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks'
   end
 
-  # delete route for delete request using bookmark ID and Sinatra named parameters and method_override (because silly HTML doesn't allow delete requests)
+  # delete route for delete request using bookmark ID and Sinatra named parameters and method_override 
+  # (because silly HTML doesn't allow delete requests)
   delete '/bookmarks/:id' do
     Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
 
   get '/bookmarks/:id/update' do
-    @bookmark_id = params[:id]
-    erb :update
+    @bookmark = Bookmark.find(id: params[:id])
+    erb :"bookmarks/update"
   end
 
   patch '/bookmarks/:id' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("UPDATE bookmarks SET url = '#{params[:update_url]}', title = '#{params[:update_title]}' WHERE id = '#{params[:id]}'")
-
+    Bookmark.update(id: params[:id], title: params[:update_title], url: params[:update_url])
     redirect '/bookmarks'
   end
  

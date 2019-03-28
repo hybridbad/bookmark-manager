@@ -13,8 +13,8 @@ feature 'add new bookmark to db' do
     fill_in('url_text', with: 'http://makers.tech')
     fill_in('title', with: "Test")
     click_button('Save')
-    
-    expect(page).to have_content('http://makers.tech')
-    expect(page).to have_content('Test')
+
+    expect(page).to have_link('Test', href: 'http://makers.tech')
+ 
   end
 end

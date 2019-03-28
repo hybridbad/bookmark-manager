@@ -1,8 +1,9 @@
-<% @bookmarks.each do |item| %>
-<li><%= item %></li>
-<% end %>
-<%= @title %>
-<br>
-<div>
-<a href="/">Back to index</a>
-</div>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <a href="<%= bookmark.url %>">
+        <%= bookmark.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

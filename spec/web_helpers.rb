@@ -5,7 +5,13 @@ def save_bookmark
 end
 
 def add_bookmark_entries
-  Bookmarks.add(url: 'http://www.makersacademy.com')
-  Bookmarks.add(url: 'http://www.destroyallsoftware.com')
-  Bookmarks.add(url: 'http://www.google.com')
+  Bookmark.add(url: 'http://www.makersacademy.com', title: 'Makers')
+  Bookmark.add(url: 'http://www.destroyallsoftware.com', title: 'Destroy Software')
+  Bookmark.add(url: 'http://www.google.com', title: 'Google')
 end
+
+# def persisted_data(id:)
+#   connection = PG.connect(dbname: 'bookmark_manager_test')
+#   result = connection.query("SELECT * FROM bookmarks WHERE id = #{id};")
+#   result.first
+# end

@@ -13,8 +13,7 @@ class BookmarkManager < Sinatra::Base
 
   # bookmark route display bookmarks view and populate with display_all class method
   get '/bookmarks' do
-    @bookmarks = Bookmarks.display_all
-    @title = session[:title]
+    @bookmarks = Bookmark.display_all
 
     erb :bookmarks
   end
@@ -25,9 +24,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   # post route for add form, calls add class method and passes in url argument as params
-  post '/bookmarks' do
-    Bookmarks.add(url: params[:url_text])
-    session[:title] = params[:title]
+  post '/bookmarks/add' do
+    Bookmark.add(url: params[:url_text], title: params[:title])
 
     redirect '/bookmarks'
   end

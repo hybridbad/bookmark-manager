@@ -15,7 +15,6 @@ feature 'update a bookmark!' do
     fill_in('update_url', with: 'https://makers.tech/')
 
     click_button('Submit')
-    save_and_open_page
 
     expect(current_path).to eq '/bookmarks'    
     expect(page).not_to have_link('Makers', href: 'http://www.makersacademy.com')

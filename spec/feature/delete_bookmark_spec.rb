@@ -7,7 +7,6 @@ feature 'delete a bookmark!' do
 
     visit('/bookmarks')
     fill_in('delete_bookmark', with: 'Makers')
-    save_and_open_page
     click_button('Delete')
     
     expect(page).to have_no_link('Makers', href: 'http://www.makersacademy.com')

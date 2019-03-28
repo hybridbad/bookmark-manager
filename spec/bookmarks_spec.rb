@@ -38,5 +38,16 @@ describe Bookmark do
     end
   end
 
+  describe '#delete' do
+    it 'deletes a bookmark' do
+      bookmark = Bookmark.add(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+
+      Bookmark.delete(title: 'Test Bookmark')
+      
+      bookmarks = Bookmark.display_all
+
+      expect(bookmarks.length).to eq 0
+    end
+  end
 
 end

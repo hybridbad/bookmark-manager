@@ -26,6 +26,13 @@ class Bookmark
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
+  def self.delete(title:)
+    self.connect_db
+    @conn.exec("DELETE FROM bookmarks WHERE title = '#{title}'")
+  end
+
+  private
+
   def self.connect_db
     # helper method to set up connection for other methods
     # set conn var as class variable

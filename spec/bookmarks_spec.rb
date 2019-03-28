@@ -42,7 +42,7 @@ describe Bookmark do
     it 'deletes a bookmark' do
       bookmark = Bookmark.add(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
 
-      Bookmark.delete(title: 'Test Bookmark')
+      Bookmark.delete(id: bookmark.id)
       
       bookmarks = Bookmark.display_all
 

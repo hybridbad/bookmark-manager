@@ -5,7 +5,7 @@ require 'pg'
 # Web app class
 class BookmarkManager < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
 
   # load index view on root of domain url
   get '/' do
@@ -31,8 +31,9 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks'
   end
 
-  post '/bookmarks/delete' do
-    Bookmark.delete(title: params[:delete_bookmark])
+  # delete route for delete request using bookmark ID and Sinatra named parameters and method_override (because silly HTML doesn't allow delete requests)
+  delete '/bookmarks/:id' do
+    Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
  

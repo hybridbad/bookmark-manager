@@ -50,4 +50,17 @@ describe Bookmark do
     end
   end
 
+  # describe '#update' do
+  #   it 'updates a bookmark title' do
+  #     bookmark = Bookmark.add(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+  #     p bookmark.id
+  #     Bookmark.update(id: bookmark.id, title: 'New title')
+  #     p bookmark.id
+  #     expect(bookmark.title).to eq 'New title'
+
+  #   end
+  # end
+
+
+  # .fin method 
 end

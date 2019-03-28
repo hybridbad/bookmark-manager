@@ -28,8 +28,15 @@ class Bookmark
 
   def self.delete(id:)
     self.connect_db
-    @conn.exec("DELETE FROM bookmarks WHERE id = '#{id}'")
+    @conn.exec("DELETE FROM bookmarks WHERE id = '#{id}';")
   end
+
+  # def self.update(id:, title:)
+  #   self.connect_db
+  #   update = @conn.exec("UPDATE bookmarks SET title = '#{title}' WHERE id = '#{id}' RETURNING id, url, title")
+
+  #   p update[0]['title']
+  # end
 
   private
 

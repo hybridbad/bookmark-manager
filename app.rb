@@ -1,11 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/bookmarks'
 require './lib/db_connection_setup'
+require './lib/comment'
+require 'uri'
 
 # Web app class
 class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   # load index view on root of domain url
   get '/' do
@@ -26,7 +30,8 @@ class BookmarkManager < Sinatra::Base
 
   # post route for add form, calls add class method and passes in url argument as params
   post '/bookmarks/add' do
-    Bookmark.add(url: params[:url_text], title: params[:title])
+    flash[:notice] = "You must submit a valid URL." unless Bookmark.add(url: params[:url_text], title: params[:title])
+    # Bookmark.add(url: params[:url_text], title: params[:title])
 
     redirect '/bookmarks'
   end
@@ -43,8 +48,22 @@ class BookmarkManager < Sinatra::Base
     erb :"bookmarks/update"
   end
 
+  # PATCH method route do to update bookmark with params given from update view form
   patch '/bookmarks/:id' do
     Bookmark.update(id: params[:id], title: params[:update_title], url: params[:update_url])
+    redirect '/bookmarks'
+  end
+
+  # GET route to new view with bookmark id passed on
+  get '/bookmarks/:id/comments/new' do
+    @bookmark_id = params[:id]
+    erb :"comments/new"
+  end
+
+  # post route for posting form data for new comment on bookmark using id ref
+  post '/bookmarks/:id/comments' do
+    Comment.create(bookmark_id: params[:id], text: params[:comment])
+
     redirect '/bookmarks'
   end
  

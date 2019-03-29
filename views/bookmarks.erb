@@ -1,17 +1,31 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <ul>
   <% @bookmarks.each do |bookmark| %>
-    <li class="bookmark" id="bookmark-<%= bookmark.id %>">
-      <a href="<%= bookmark.url %>" target="_blank">
-        <%= bookmark.title %>
-      </a>
-      <form action="/bookmarks/<%= bookmark.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" value="Delete">
+  <li class="bookmark" id="bookmark-<%= bookmark.id %>">
+    <a href="<%= bookmark.url %>" target="_blank">
+      <%= bookmark.title %>
+    </a>
+    <form action="/bookmarks/<%= bookmark.id %>" method="post">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="Delete">
     </form>
     <form action="/bookmarks/<%= bookmark.id %>/update" method="get">
       <input type="submit" value="Update">
     </form>
-    </li>
+    <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
+      <input type="submit" value="Add Comment" />
+    </form>
+    <ul>
+      <% bookmark.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+      <% end %>
+    </ul>
+  </li>
   <% end %>
 </ul>
+<h2>
+  <%= flash[:notice] %>
+</h2>
+
 <a href="/bookmarks/add">Add new bookmark</a></li>
